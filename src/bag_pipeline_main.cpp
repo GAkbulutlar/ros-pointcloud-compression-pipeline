@@ -9,7 +9,8 @@ namespace {
 void printUsage(const char* exe)
 {
     std::cout << "Usage: " << exe
-              << " [--bag <bag_path>] [--out <output_bin>] [--max-frames <n>] [--radius <meters>]\n";
+              << " [--bag <bag_path>] [--out <output_bin>] [--max-frames <n>]"
+              << " [--radius <meters>] [--voxel-leaf <meters>] [--no-view] [--no-plots]\n";
 }
 
 bool parseArgs(int argc, char** argv, PipelineConfig& config)
@@ -49,6 +50,16 @@ bool parseArgs(int argc, char** argv, PipelineConfig& config)
                 return false;
             }
             config.kd_query_radius = static_cast<float>(std::atof(value));
+        } else if (arg == "--voxel-leaf") {
+            const char* value = requireValue("--voxel-leaf");
+            if (!value) {
+                return false;
+            }
+            config.voxel_leaf_size = static_cast<float>(std::atof(value));
+        } else if (arg == "--no-view") {
+            config.enable_visualization = false;
+        } else if (arg == "--no-plots") {
+            config.enable_metric_plots = false;
         } else if (arg == "--help" || arg == "-h") {
             printUsage(argv[0]);
             return false;

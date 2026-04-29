@@ -2,17 +2,53 @@
   "version": 3,
   "configurePresets": [
     {
-      "name": "msvc-vcpkg",
-      "displayName": "MSVC + vcpkg",
+      "name": "base-vcpkg",
+      "hidden": true,
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/${presetName}",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "toolset": {
+        "value": "host=x64",
+        "strategy": "external"
+      },
       "cacheVariables": {
         "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_MAKE_PROGRAM": "C:/Program Files/Ninja/ninja.exe",
-        "CMAKE_C_COMPILER": "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/cl.exe",
-        "CMAKE_CXX_COMPILER": "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/cl.exe"
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
       }
+    },
+    {
+      "name": "msvc-vcpkg-debug",
+      "displayName": "MSVC + vcpkg (Debug)",
+      "inherits": "base-vcpkg",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "msvc-vcpkg-release",
+      "displayName": "MSVC + vcpkg (Release)",
+      "inherits": "base-vcpkg",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "build-debug",
+      "configurePreset": "msvc-vcpkg-debug",
+      "targets": ["BagPointCloudPipeline"]
+    },
+    {
+      "name": "build-release",
+      "configurePreset": "msvc-vcpkg-release",
+      "targets": ["BagPointCloudPipeline"]
     }
   ]
 }
+

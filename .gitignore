@@ -1,15 +1,43 @@
+# Build directories
 build/
-.vs/
-.vscode/
-CMakeUserPresets.json
-compile_commands.json
+out/
 
+# CMake and build system files
+CMakeUserPresets.json
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+*.ninja
+.ninja_deps
+.ninja_log
+
+# Binaries and libraries
 *.exe
-*.ilk
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
 *.obj
 *.pdb
-*.lib
+*.ilk
 
-*_downsampled.pcd
+# Generated pipeline artifacts
+cloud_frames*.bin
+cloud_frames*.csv
+cloud_frames*.svg
+
+# Large local datasets
 *.bag
-cloud_frames.bin
+
+# IDE/editor artifacts
+.vscode/
+.idea/
+*.VC.db
+*.VC.opendb
+
+# Logs and temp files
+*.log
+*.tmp
+*.cache

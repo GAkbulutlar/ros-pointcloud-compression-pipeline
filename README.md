@@ -1,22 +1,22 @@
 # ROS Bag Point Cloud Compression Pipeline
 
-This project reads a ROS `.bag` file that contains laser scan data, converts each scan message into a PCL point cloud, compresses the cloud with an octree encoder, writes the compressed bytes to disk, decompresses the data again, visualizes the decoded cloud, and runs a k-d tree spatial query.
+This project reads a ROS `.bag` file that contains laser scan data, converts each scan message into a PCL point cloud, compares three compression methods (Raw, Octree, and VoxelGrid), writes outputs to disk, reconstructs clouds, visualizes results, and runs a k-d tree spatial query.
 
 The current input file in this workspace is:
 
-- `b0-2014-07-11-11-00-49.bag`
+- `b3-2015-12-10-12-41-07.bag`
 
 ## Overall Pipeline
 
 ```text
 ROS bag (.bag)
   -> ROS bag record reader
-  -> bz2 chunk decompression
+  -> rosbag chunk decompression (none/bz2/lz4)
   -> scan message extraction
   -> scan-to-point-cloud conversion
-  -> octree compression
+  -> three-method compression benchmark
   -> binary storage (.bin)
-  -> octree decompression
+  -> cloud reconstruction
   -> visualization
   -> k-d tree query
   -> performance metrics
@@ -25,8 +25,8 @@ ROS bag (.bag)
 ## Project Structure
 
 ```text
-Downsampling-a-PointCloud-using-a-VoxelGrid-filter/
-|-- b0-2014-07-11-11-00-49.bag         # Input ROS bag
+ros-pointcloud-compression-pipeline/
+|-- b3-2015-12-10-12-41-07.bag         # Input ROS bag
 |-- cloud_frames.bin                   # Generated compressed binary output
 |-- CMakeLists.txt                     # Build target and dependency wiring
 |-- CMakePresets.json                  # Preset-based CMake configuration
@@ -84,7 +84,7 @@ This gives you the experiment-level summary instead of only individual frame log
 This is the main application class. It is responsible for:
 
 - reading the ROS bag
-- decoding bz2-compressed bag chunks
+- decoding rosbag chunks compressed with none/bz2/lz4
 - extracting laser scan messages
 - converting scans into `pcl::PointCloud<pcl::PointXYZ>`
 - compressing and decompressing point clouds
@@ -232,16 +232,38 @@ This helps compare different settings such as:
 
 ## Build
 
+### Prerequisites
+
+- Visual Studio Build Tools (MSVC)
+- CMake 3.20+
+- Ninja
+- vcpkg with `VCPKG_ROOT` environment variable set
+
+Run configure/build from **Developer PowerShell for Visual Studio** (or VS Code CMake Tools with an MSVC kit) so `cl` is available on `PATH`.
+
+Example (PowerShell):
+
 ```powershell
-cmake --preset msvc-vcpkg
-cmake --build build/msvc-vcpkg --target BagPointCloudPipeline
+$env:VCPKG_ROOT = "C:/path/to/vcpkg"
+```
+
+```powershell
+cmake --preset msvc-vcpkg-debug
+cmake --build --preset build-debug
 ```
 
 ## Run
 
 ```powershell
-.\build\msvc-vcpkg\BagPointCloudPipeline.exe --bag b0-2014-07-11-11-00-49.bag --out cloud_frames.bin --max-frames 60 --radius 0.05
+.\build\msvc-vcpkg-debug\BagPointCloudPipeline.exe --bag b3-2015-12-10-12-41-07.bag --out cloud_frames.bin --max-frames 60 --radius 1
 ```
+
+## Why This Stands Out
+
+- Designed and implemented a full ROS bag to analytics pipeline instead of a single isolated algorithm.
+- Benchmarked three methods on identical data and presented measurable tradeoffs in size and latency.
+- Included practical outputs (CSV + SVG plots) to support reproducible decision-making.
+- Structured the codebase for extension into production robotics tasks (mapping, registration, and spatial analysis).
 
 ## Command Line Arguments
 
@@ -263,6 +285,36 @@ Each stored record includes:
 - compressed payload bytes
 
 This makes it possible to persist the compressed output of the experiment for later reuse.
+
+## Three-Method Comparison (Raw vs Octree vs VoxelGrid)
+
+I compared three compression strategies on the same bag run (60 frames):
+
+- Raw baseline serialization
+- PCL Octree compression
+- VoxelGrid downsampling + serialization
+
+### Comparison Summary
+
+| Method | Frames | Total Size (MB) | Compression Ratio (raw/compressed) | Avg Compression (ms) | Avg Decompression (ms) |
+|---|---:|---:|---:|---:|---:|
+| Raw | 60 | 0.351562 | 1.000000 | 0.002453 | 0.005902 |
+| Octree | 60 | 0.276909 | 1.269596 | 3.099453 | 7.479068 |
+| VoxelGrid | 60 | 0.108658 | 3.235501 | 0.878068 | 0.006122 |
+
+### Comparison Summary Screenshot
+
+![Compression ratio comparison across 60 frames](cloud_frames_ratio_vs_frame.svg)
+
+### Conclusion
+
+This experiment shows a practical engineering tradeoff rather than a one-size-fits-all answer:
+
+- VoxelGrid delivered the strongest size reduction (3.24x), making it the best choice when storage and transport efficiency are the top priority.
+- Octree provided moderate compression (1.27x) but with higher encode/decode cost, which can be justified when preserving richer geometric fidelity is more important than throughput.
+- Raw stayed fastest but gave no compression benefit, so it is best used as a baseline or for low-latency debug pipelines.
+
+From a hiring-manager perspective, this project demonstrates production-minded thinking: I built an end-to-end pipeline, instrumented it with measurable KPIs, compared alternatives on identical data, and made evidence-based design recommendations instead of relying on assumptions.
 
 ## Summary
 
