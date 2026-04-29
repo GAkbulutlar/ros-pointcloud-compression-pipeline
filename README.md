@@ -304,7 +304,7 @@ I compared three compression strategies on the same bag run (60 frames):
 
 ### Comparison Summary Screenshot
 
-![Compression ratio comparison across 60 frames](cloud_frames_ratio_vs_frame.svg)
+![Compression ratio comparison across 60 frames](cloud_frames_latency_vs_frame.svg)
 
 ### Conclusion
 
