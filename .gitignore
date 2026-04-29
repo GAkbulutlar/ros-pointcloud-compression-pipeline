@@ -26,7 +26,6 @@ compile_commands.json
 # Generated pipeline artifacts
 cloud_frames*.bin
 cloud_frames*.csv
-cloud_frames*.svg
 
 # Large local datasets
 *.bag

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="22" font-family="Segoe UI, Arial, sans-serif" fill="#111">Compression Ratio vs Frame Index</text>
+  <line x1="80" y1="430" x2="960" y2="430" stroke="#222" stroke-width="2"/>
+  <line x1="80" y1="60" x2="80" y2="430" stroke="#222" stroke-width="2"/>
+  <line x1="80" y1="430" x2="960" y2="430" stroke="#e7e7e7" stroke-width="1"/>
+  <text x="72" y="434" text-anchor="end" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">0.00</text>
+  <line x1="80" y1="356.00" x2="960" y2="356.00" stroke="#e7e7e7" stroke-width="1"/>
+  <text x="72" y="360.00" text-anchor="end" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">3.20</text>
+  <line x1="80" y1="282.00" x2="960" y2="282.00" stroke="#e7e7e7" stroke-width="1"/>
+  <text x="72" y="286.00" text-anchor="end" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">6.40</text>
+  <line x1="80" y1="208.00" x2="960" y2="208.00" stroke="#e7e7e7" stroke-width="1"/>
+  <text x="72" y="212.00" text-anchor="end" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">9.60</text>
+  <line x1="80" y1="134.00" x2="960" y2="134.00" stroke="#e7e7e7" stroke-width="1"/>
+  <text x="72" y="138.00" text-anchor="end" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">12.80</text>
+  <line x1="80" y1="60.00" x2="960" y2="60.00" stroke="#e7e7e7" stroke-width="1"/>
+  <text x="72" y="64.00" text-anchor="end" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">16.00</text>
+  <line x1="80.00" y1="60" x2="80.00" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="80.00" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">0</text>
+  <line x1="168" y1="60" x2="168" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="168" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">6</text>
+  <line x1="256" y1="60" x2="256" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="256" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">12</text>
+  <line x1="344" y1="60" x2="344" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="344" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">18</text>
+  <line x1="432" y1="60" x2="432" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="432" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">24</text>
+  <line x1="520" y1="60" x2="520" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="520" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">30</text>
+  <line x1="608" y1="60" x2="608" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="608" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">35</text>
+  <line x1="696" y1="60" x2="696" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="696" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">41</text>
+  <line x1="784" y1="60" x2="784" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="784" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">47</text>
+  <line x1="872" y1="60" x2="872" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="872" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">53</text>
+  <line x1="960" y1="60" x2="960" y2="430" stroke="#f2f2f2" stroke-width="1"/>
+  <text x="960" y="452" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial, sans-serif" fill="#333">59</text>
+  <polyline fill="none" stroke="#1f77b4" stroke-width="2.5" points="80.00,325.14 94.92,332.01 109.83,341.92 124.75,345.58 139.66,355.46 154.58,357.69 169.49,364.59 184.41,366.66 199.32,372.15 214.24,373.64 229.15,378.03 244.07,379.94 258.98,383.61 273.90,385.85 288.81,388.60 303.73,390.20 318.64,392.54 333.56,393.51 348.47,394.77 363.39,395.47 378.31,396.36 393.22,396.87 408.14,398.53 423.05,398.90 437.97,399.68 452.88,399.93 467.80,400.71 482.71,400.90 497.63,401.74 512.54,401.92 527.46,402.77 542.37,402.89 557.29,403.71 572.20,403.80 587.12,404.62 602.03,404.68 616.95,405.38 631.86,405.43 646.78,406.06 661.69,406.12 676.61,406.67 691.53,406.72 706.44,407.25 721.36,407.26 736.27,407.71 751.19,407.78 766.10,408.24 781.02,408.27 795.93,408.65 810.85,408.67 825.76,409.01 840.68,409.03 855.59,409.31 870.51,409.34 885.42,409.61 900.34,409.64 915.25,409.90 930.17,409.94 945.08,410.15 960.00,410.18 "/>
+  <line x1="80" y1="480" x2="100" y2="480" stroke="#1f77b4" stroke-width="3"/>
+  <text x="106" y="484" font-size="12" font-family="Segoe UI, Arial, sans-serif" fill="#111">Octree</text>
+  <polyline fill="none" stroke="#d62728" stroke-width="2.5" points="80.00,406.88 94.92,406.88 109.83,406.88 124.75,406.88 139.66,406.88 154.58,406.88 169.49,406.88 184.41,406.88 199.32,406.88 214.24,406.88 229.15,406.88 244.07,406.88 258.98,406.88 273.90,406.88 288.81,406.88 303.73,406.88 318.64,406.88 333.56,406.88 348.47,406.88 363.39,406.88 378.31,406.88 393.22,406.88 408.14,406.88 423.05,406.88 437.97,406.88 452.88,406.88 467.80,406.88 482.71,406.88 497.63,406.88 512.54,406.88 527.46,406.88 542.37,406.88 557.29,406.88 572.20,406.88 587.12,406.88 602.03,406.88 616.95,406.88 631.86,406.88 646.78,406.88 661.69,406.88 676.61,406.88 691.53,406.88 706.44,406.88 721.36,406.88 736.27,406.88 751.19,406.88 766.10,406.88 781.02,406.88 795.93,406.88 810.85,406.88 825.76,406.88 840.68,406.88 855.59,406.88 870.51,406.88 885.42,406.88 900.34,406.88 915.25,406.88 930.17,406.88 945.08,406.88 960.00,406.88 "/>
+  <line x1="280" y1="480" x2="300" y2="480" stroke="#d62728" stroke-width="3"/>
+  <text x="306" y="484" font-size="12" font-family="Segoe UI, Arial, sans-serif" fill="#111">Raw</text>
+  <polyline fill="none" stroke="#2ca02c" stroke-width="2.5" points="80.00,377.76 94.92,363.23 109.83,372.71 124.75,364.71 139.66,376.51 154.58,360.08 169.49,380.94 184.41,364.22 199.32,381.48 214.24,367.02 229.15,374.84 244.07,371.58 258.98,380.94 273.90,380.11 288.81,376.18 303.73,378.37 318.64,379.26 333.56,372.34 348.47,373.44 363.39,361.16 378.31,371.58 393.22,350.00 408.14,375.52 423.05,341.20 437.97,361.16 452.88,335.53 467.80,363.73 482.71,314.68 497.63,362.73 512.54,304.93 527.46,370.00 542.37,279.49 557.29,366.12 572.20,265.56 587.12,365.18 602.03,245.00 616.95,371.58 631.86,208.00 646.78,371.58 661.69,208.00 676.61,373.80 691.53,152.50 706.44,374.50 721.36,123.79 736.27,377.14 751.19,160.91 766.10,378.67 781.02,143.55 795.93,375.52 810.85,152.50 825.76,371.19 840.68,183.33 855.59,368.76 870.51,168.82 885.42,361.69 900.34,213.41 915.25,365.18 930.17,168.82 945.08,360.08 960.00,60.00 "/>
+  <line x1="480" y1="480" x2="500" y2="480" stroke="#2ca02c" stroke-width="3"/>
+  <text x="506" y="484" font-size="12" font-family="Segoe UI, Arial, sans-serif" fill="#111">VoxelGrid</text>
+  <text x="520" y="460" text-anchor="middle" font-size="13" font-family="Segoe UI, Arial, sans-serif" fill="#111">Frame Index</text>
+  <text transform="translate(20 245) rotate(-90)" text-anchor="middle" font-size="13" font-family="Segoe UI, Arial, sans-serif" fill="#111">Compression Ratio (raw/compressed)</text>
+</svg>
